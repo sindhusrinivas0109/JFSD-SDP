@@ -1,0 +1,182 @@
+/* Reset and base styles from your original Tailwind setup */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9fafb; /* Light gray background */
+    margin: 0; /* Ensure no default margin */
+    padding: 0; /* Ensure no default padding */
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0f172a;
+    padding: 1rem 2rem;
+    color: #ffffff;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.navbar-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.navbar-auth a {
+    margin-left: 1rem;
+}
+
+/* Hero section styling */
+.hero {
+    position: relative; /* Allow positioning of the pseudo-element */
+    text-align: center;
+    background-image: url('background.png'); /* Replace with the actual path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 89vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
+    padding: 4rem 2rem;
+    color: #ffffff;
+    box-sizing: border-box; /* To include padding in the height */
+}
+
+/* Add a blue overlay to the background */
+.hero::before {
+    content: ''; /* Required for the pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(43, 66, 105, 0.6); /* Light blue with transparency */
+    z-index: 1; /* Make sure the overlay stays behind the content */
+}
+
+.hero > * {
+    position: relative; /* Make sure the content is on top of the overlay */
+    z-index: 2;
+}
+
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.hero .highlight {
+    color: #3b82f6; /* Highlight color */
+}
+
+.hero p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    color: #e5e7eb; /* Light gray for text */
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-primary1{
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.btn-primary2{
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #ffffff;
+}
+.btn-primary1 {
+    background-color: #3b82f6; 
+}
+
+.btn-primary2 {
+    background-color: #ffffff;
+    color:#3b82f6;
+}
+
+/* Navbar styling */
+.navbar-auth {
+    position: relative;
+}
+
+.profile-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.profile-link i {
+    font-size: 24px; /* Increases the size of the profile icon */
+}
+
+.profile-link:hover {
+    text-decoration: underline;
+}
+
+/* Dropdown styling */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    display: none;
+    z-index: 10;
+    width: 150px; /* Adjust as needed */
+    overflow-y: auto; /* Enables scrolling for long lists */
+    max-height: 200px; /* Restricts height to allow scrolling */
+}
+
+.dropdown a {
+    display: block;
+    color: #003366;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show dropdown on hover */
+.navbar-auth:hover .dropdown {
+    display: block;
+}
+
+

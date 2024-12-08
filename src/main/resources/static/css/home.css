@@ -1,0 +1,541 @@
+/* Reset and base styles from your original Tailwind setup */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9fafb; /* Light gray background */
+    margin: 0; /* Ensure no default margin */
+    padding: 0; /* Ensure no default padding */
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0f172a;
+    padding: 1rem 2rem;
+    color: #ffffff;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.navbar-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.navbar-auth a {
+    margin-left: 0.5rem; /* Decrease the gap between "About" and profile icon */
+}
+
+/* Hero section styling */
+.hero {
+    position: relative; /* Allow positioning of the pseudo-element */
+    text-align: center;
+    background-image: url('background.png'); /* Replace with the actual path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 89vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
+    padding: 4rem 2rem;
+    color: #ffffff;
+    box-sizing: border-box; /* To include padding in the height */
+}
+
+/* Add a blue overlay to the background */
+.hero::before {
+    content: ''; /* Required for the pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(43, 66, 105, 0.6); /* Light blue with transparency */
+    z-index: 1; /* Make sure the overlay stays behind the content */
+}
+
+.hero > * {
+    position: relative; /* Make sure the content is on top of the overlay */
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.hero .highlight {
+    color: #3b82f6; /* Highlight color */
+}
+
+.hero p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    color: #e5e7eb; /* Light gray for text */
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-primary1{
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.btn-primary2{
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #ffffff;
+}
+.btn-primary1 {
+    background-color: #3b82f6; 
+}
+
+.btn-primary2 {
+    background-color: #ffffff;
+    color:#3b82f6;
+}
+.profile-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.profile-link i {
+    font-size: 32px; /* Increase the size of the profile icon */
+}
+
+.profile-link:hover {
+    text-decoration: underline;
+}
+/* Dropdown styling */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    display: none;
+    z-index: 5;
+    width: 100px; /* Adjust as needed */
+    overflow-y: auto; /* Enables scrolling for long lists */
+    max-height: 200px; /* Restricts height to allow scrolling */
+}
+
+.dropdown a {
+    display: block;
+    color: #003366;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show dropdown on hover */
+.navbar-auth:hover .dropdown {
+    display: block;
+}
+
+/* Search Bar Styling */
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.search-bar input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem 0 0 0.25rem;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 0 0.25rem 0.25rem 0;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #2563eb;
+}
+
+/* Featured Content Section */
+.featured-content {
+    padding: 4rem 2rem;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.featured-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.featured-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.featured-item {
+    width: 30%;
+    background-color: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.featured-item:hover {
+    transform: translateY(-5px);
+}
+
+.featured-item img {
+    width: 100%;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.featured-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.featured-item p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-secondary {
+    padding: 0.75rem 1.5rem;
+    background-color: #3b82f6;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #2563eb;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 4rem 2rem;
+    background-color: #f3f4f6;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.testimonial-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.testimonial-item {
+    width: 45%;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-item:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-item p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.testimonial-item span {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+/* Newsletter Section */
+.newsletter {
+    padding: 4rem 2rem;
+    background-color: #3b82f6;
+    color: white;
+    text-align: center;
+}
+
+.newsletter h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.newsletter p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.newsletter form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.newsletter input {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.25rem;
+    outline: none;
+    width: 300px;
+}
+
+.newsletter button {
+    padding: 0.75rem 1.5rem;
+    background-color: #ffffff;
+    color: #3b82f6;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter button:hover {
+    background-color: #e5e7eb;
+}
+
+/* Social Media Section */
+.social-media {
+    padding: 4rem 2rem;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.social-media h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-icons a {
+    color: #3b82f6;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #2563eb;
+}
+
+/* FAQ Section */
+.faq {
+    padding: 4rem 2rem;
+    background-color: #f3f4f6;
+    text-align: center;
+}
+
+.faq h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.faq-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.faq-item {
+    width: 30%;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-5px);
+}
+
+.faq-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.faq-item p {
+    font-size: 1rem;
+    color: #6b7280;
+}
+
+/* Call to Action Section */
+.cta {
+    padding: 4rem 2rem;
+    background-color: #3b82f6;
+    color: white;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.cta .btn-primary2 {
+    background-color: #ffffff;
+    color: #3b82f6;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.cta .btn-primary2:hover {
+    background-color: #e5e7eb;
+}
+/* Custom CSS for Footer */
+footer {
+    background-color: #2d3748; /* Tailwind's bg-gray-800 */
+    color: white; /* Tailwind's text-white */
+    padding: 2rem 0; /* Tailwind's py-8 */
+    margin-top: 3rem; /* Tailwind's mt-12 */
+}
+
+footer .max-w-7xl {
+    max-width: 80rem; /* Tailwind's max-w-7xl */
+    margin-left: auto; /* Tailwind's mx-auto */
+    margin-right: auto; /* Tailwind's mx-auto */
+    padding-left: 1rem; /* Tailwind's px-4 */
+    padding-right: 1rem; /* Tailwind's px-4 */
+}
+
+footer .grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* Tailwind's grid-cols-1 */
+    gap: 2rem; /* Tailwind's gap-8 */
+}
+
+@media (min-width: 768px) {
+    footer .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* Tailwind's md:grid-cols-3 */
+    }
+}
+
+footer h3 {
+    font-size: 1.125rem; /* Tailwind's text-lg */
+    font-weight: 600; /* Tailwind's font-semibold */
+    margin-bottom: 1rem; /* Tailwind's mb-4 */
+}
+
+footer .flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Tailwind's items-center */
+}
+
+@media (min-width: 768px) {
+    footer .flex {
+        align-items: flex-start; /* Tailwind's md:items-start */
+    }
+}
+
+footer .space-x-4 {
+    display: flex;
+    gap: 1rem; /* Tailwind's space-x-4 */
+}
+
+footer a {
+    color: #a0aec0; /* Tailwind's text-gray-400 */
+    transition: color 0.2s; /* Tailwind's transition-colors duration-200 */
+}
+
+footer a:hover {
+    color: white; /* Tailwind's hover:text-white */
+}
+
+footer svg {
+    height: 1.5rem; /* Tailwind's h-6 */
+    width: 1.5rem; /* Tailwind's w-6 */
+    fill: currentColor; /* Tailwind's fill-current */
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    margin-bottom: 0.5rem; /* Tailwind's space-y-2 */
+}
+
+footer p {
+    color: #a0aec0; /* Tailwind's text-gray-400 */
+    text-align: center; /* Tailwind's text-center */
+}
+
+@media (min-width: 768px) {
+    footer p {
+        text-align: left; /* Tailwind's md:text-left */
+    }
+}
+
+ .center-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
